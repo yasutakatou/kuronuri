@@ -46,3 +46,26 @@ kuronuri.exe )USERID=;PASSWORD=:hogepassword( output.sh
 ```
 
 ver easy! (Bob Ross say)
+
+You want to hide your local address too if you can by another key word.
+
+```
+kuronuri.exe -noRun -dst=output.sh (USERID=;PASSWORD=:hogepassword) (//:fugapassword) auth.sh
+```
+
+You could.
+
+```
+#!/bin/bash
+
+USERID=qDCHaNFLiHI7UtFM_r2_dZzGUacQnFLfXZ8gOw1gsoay
+PASSWORD=T_EHdS2C6RAUhstj3PIi124uRwhkWgEE_A67Z7e4NUx9rtso2IX21g==
+
+wget --post-data="userid=$USERID&$PASSWORD" http://eNU4qWl3qJ7lVxL14lDTrMXkyUQuuMXwzM9nsbowd8ZVDJFyC1XJ5KRXJsUvAA==
+```
+
+Your keyword way to decode.
+
+```
+kuronuri.exe -noRun )USERID=;PASSWORD=:hogepassword( )//:fugapassword( output.sh
+```
