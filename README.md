@@ -69,3 +69,13 @@ Your keyword way to decode.
 ```
 kuronuri.exe -noRun )USERID=;PASSWORD=:hogepassword( )//:fugapassword( output.sh
 ```
+
+# options
+
+|option name|default value|detail|
+|:---|:---|:---|
+|-dst|(random)|output file name|
+|-noRun|false|no Run and no Delete script|
+|-dry|false|no run command and not create script|
+|-wrap|busybox.exe|wrapper command|
+|-opt|bash|wrapper command arg option|
