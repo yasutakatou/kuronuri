@@ -16,11 +16,14 @@ wget --post-data="userid=$USERID&$PASSWORD" http://192.168.0.1:8080
 
 ## very, very, very worst!!
 
-This makes you want to encrypt a little bit, doesn't it?
-But, If you encrypt all text, anyone don't know about text detail.
+This makes you want to encrypt a little bit, doesn't it?<br>
+But, If you encrypt all text, anyone can't see what's inside.<br>
 If possible, you want to encrypt a part of text. This tool help you!
 
 # usage
+
+This tool encrypt or decrypt a part of text, and create temporary file and run script.<br>
+So, secret keyword can't know anyone , and we can know script's inside.<br>
 
 The earlier script example.
 
@@ -45,7 +48,7 @@ A case of decryption, ")" is opposite direction.
 kuronuri.exe )USERID=;PASSWORD=:hogepassword( output.sh
 ```
 
-ver easy! (Bob Ross say)
+ver easy! (Bob Ross said)<br>
 
 You want to hide your local address too if you can by another key word.
 
@@ -64,18 +67,61 @@ PASSWORD=T_EHdS2C6RAUhstj3PIi124uRwhkWgEE_A67Z7e4NUx9rtso2IX21g==
 wget --post-data="userid=$USERID&$PASSWORD" http://eNU4qWl3qJ7lVxL14lDTrMXkyUQuuMXwzM9nsbowd8ZVDJFyC1XJ5KRXJsUvAA==
 ```
 
-Your keyword way to decode.
+Way to decode by two keywords .
+
 
 ```
 kuronuri.exe -noRun )USERID=;PASSWORD=:hogepassword( )//:fugapassword( output.sh
 ```
 
+")" is opposite direction again. ver easy!
+
+
+# install
+
+If you want to put it under the path, you can use the following.
+
+```
+go get github.com/yasutakatou/kuronuri
+```
+
+If you want to create a binary and copy it yourself, use the following.
+
+```
+git clone https://github.com/yasutakatou/kuronuri
+cd kuronuri
+go build kuronuri.go
+```
+
+or download binary from [release page](https://github.com/yasutakatou/kuronuri/releases).
+save binary file, copy to entryed execute path directory.
+
+# uninstall
+
+delete that binary.
+del or rm command. (it's simple!)
+
 # options
+
+"(" and ")" used encrypt or decrypt and this tool provide another options.<br>
 
 |option name|default value|detail|
 |:---|:---|:---|
-|-dst|(random)|output file name|
+|-dst|(random string)|output file name|
 |-noRun|false|no Run and no Delete script|
-|-dry|false|no run command and not create script|
-|-wrap|busybox.exe|wrapper command|
-|-opt|bash|wrapper command arg option|
+|-dry|false|no Run and no Create script|
+|-wrap|(Windows) busybox.exe <br> (Linux) bash|wrapper command|
+|-opt|(Windows) bash <br> (Linux) [empty]|wrapper command arg option|
+
+note) 
+When run on windows, windows don't provide unix command in the standard.<br>
+So, this tool is using "busybox.exe".<br>
+
+[BUSYBOX](https://busybox.net/)<br>
+
+Download "busybox.exe" and put same directory this tool.<br>
+
+# License
+
+ICU License
+
