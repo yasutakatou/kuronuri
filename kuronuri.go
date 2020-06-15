@@ -16,6 +16,7 @@ import (
 	"regexp"
 	"strings"
 	"time"
+	"runtime"
 
 	"github.com/saintfish/chardet"
 	"golang.org/x/text/encoding/japanese"
@@ -37,14 +38,25 @@ func init() {
 }
 
 func main() {
+	var wCmd string
+	var wOpt string
+
+	if runtime.GOOS == "linux" {
+		wCmd = "bash"
+		wOpt = ""
+	} else {
+		wCmd = "busybox.exe"
+		wOpt = "bash"
+	}
+
 	batFile := ""
 	batCommand := ""
 
 	_noRun := flag.Bool("noRun", false, "[-noRun=no run command or script.]")
 	_Dry := flag.Bool("dry", false, "[-dry=no run command and not create script.]")
 	_dstFile := flag.String("dst", "", "[-dst=create file name]")
-	_wrapper := flag.String("wrap", "busybox.exe", "[-wrap=wrapper command]")
-	_wrapOpt := flag.String("opt", "bash", "[-wrap=wrapper command arg option]")
+	_wrapper := flag.String("wrap", wCmd, "[-wrap=wrapper command]")
+	_wrapOpt := flag.String("opt", wOpt, "[-wrap=wrapper command arg option]")
 
 	flag.Parse()
 
